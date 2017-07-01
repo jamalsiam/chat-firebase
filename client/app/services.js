@@ -4,7 +4,7 @@ angular.module('u.services', [])
 .factory('Signup', function ($http) {
   var checkSignup= function (signup) {
 
-  console.log(signup);
+  //console.log(signup);
     return $http({
       method: 'POST',
       url: '/api/signup',
@@ -22,7 +22,7 @@ angular.module('u.services', [])
 .factory('Login', function ($http) {
   var checkLogin= function (info) {
 
-  console.log(info);
+ // console.log(info);
     return $http({
       method: 'POST',
       url: '/api/login',

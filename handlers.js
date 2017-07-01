@@ -5,7 +5,7 @@ firebase.initializeApp({
 });
 var ref=firebase.database().ref('node-client');
 module.exports.handleUser = {
-  checkSignup: function(req, res)  {
+	checkSignup: function(req, res)  {
 		//console.log(req.body);
 		var email=req.body.email;
 		var firstname=req.body.firstname;
@@ -28,9 +28,37 @@ module.exports.handleUser = {
 				}
 			})
 
-	},
+	},		
 	checkLogin: function(req, res)  {
-		console.log(req.body);
+
+		var email=req.body.email;
+		var password=req.body.password;
+		ref.child(email).on('value',
+			function(snap){
+				if(!snap.val()){
+					res.json("signup");
+				}
+				else
+				{
+					console.log(" email")
+					ref.child(email+"/password").on('value',
+						function(snap){
+							if(snap.val()==password){
+								console.log("password ok")
+								res.json("logedin");
+
+							}
+							else
+							{
+								res.json("checkpassword");
+								console.log("password no")
+							}
+
+						})
+
+				}
+
+			})
 	}
 }
 
