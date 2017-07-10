@@ -1,12 +1,68 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+</style>
       <link rel="stylesheet" href="style/style.css">
 
 	<title>entersender</title>
 	
 </head>
 <body ng-app='user'>
+<div ng-controller="indexController" >
+
+	<div class="dropdown" style="float:right;" ng-if="email">
+  <span >{{fname}} {{lname}}</span>
+  <img ng-src="{{imageProfile}}" style="border-radius: 50%;" width="50" height="50">
+  <div class="dropdown-content">
+    <img ng-src="{{imageProfile}}" width="200" height="200">
+     <div style="text-align: center;"><a href="#/main">{{email}} </a> </div>
+   	 <div style="text-align: center;"><a href="#/settings">Change </a> </div>
+     <div style="text-align: center;"><a href="#/logout"> Logout </a> </div>
+  </div>
+</div>
+
+</div>
 
 	<ng-view></ng-view>
 
@@ -18,8 +74,12 @@
 </body>
 	<script src="lib/angular/angular.js"></script>
 	<script src="lib/angular-route/angular-route.js"></script>
-	<script src="app/account/SIGNUP.js"></script>
+	 <script src="app/account/indexCtr.js"></script>
+  <script src="app/account/SIGNUP.js"></script>
+	<script src="app/account/SETTINGS.js"></script>
 	<script src="app/account/LOGIN.js"></script>
+  <script src="app/account/LOGOUT.js"></script>
+
 	<script src="app/account/MAIN.js"></script>
 	<script src="app/services.js"></script>
 	<script src="app/app.js"></script>

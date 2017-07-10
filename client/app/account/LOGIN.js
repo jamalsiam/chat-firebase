@@ -16,9 +16,9 @@ angular.module('login' , [])
 					$scope.msg="signup to get start";
 				}
 				if(i=="logedin"){
-				// $window.localStorage.setItem('chatUser.email', i.email );
-				// $window.localStorage.setItem('chatUser.username',  i.name);     	
+				$window.localStorage.setItem('chatUser.email', email );     	
 				$window.location="/#/main";
+				$window.location.reload()
 			}
 			if(i=="checkpassword"){
 				$scope.msg="check password";

@@ -1,1 +1,39 @@
-<h1>main</h1>
+<style >
+	
+</style>
+<!group>
+<div class="form" style=" position: absolute; left: 0px;width: 25%;margin-top: 100px;">
+	<h2 style="color: white ;text-align:center; ">groups </h2>
+	<div style="position:relative" ng-repeat="(key ,group) in groupss" >
+	<ng-click ng-click="getGroupToChat(key)">
+		<img ng-src={{image_profile}} style="border-radius: 50%; position:absolute;top:10;left:0; " width="50" height="50" >
+
+		<div style="margin-left: 53px;padding-top:8px;  color: white;"> {{key}}</div>
+		<br>
+		<hr>
+		</ng-click>   
+	</div>
+	<input type=""  style ="background:#c1bdba;" ng-model="nameNewGroup " placeholder="Do you want cteate group?" ><br>
+	<input type="submit" class="button button-block" value="create Group"  ng-click="createGroup(nameNewGroup)">
+</div>
+<!chat>	
+<div class="form" style=" position: absolute; right: 0px;width: 74%;margin-top: 100px;border-radius: 10px; ">
+<img ng-src={{image_profile}} style="border-radius: 50%; " width="75px" height="75px" >
+<span style="color:white; font-size: 20px; position: relative;
+top: -30px; " >{{groupName}}</span>
+<hr>
+<
+<div style="width: 90% ;background:#c1bdba; height: 100%; border-radius: 10px; padding:20px; margin:50px ">
+<span   ng-repeat="msg in msgs" >
+	<h1 class="sender" ng-if="msg.sender==email ||msg.email==email" > {{msg.textMsg}} :Me</h1>
+	<h1 class="resever" ng-if="msg.sender!=email" >{{msg.sender}}: {{msg.textMsg}}</h1>
+
+</span>
+</div>
+<hr>
+
+<input type=""  style ="background:#c1bdba;" ng-model="textMsg_send"  ><br>
+<input type="submit" class="button button-block" value="send"  ng-click="send(textMsg_send)">
+
+</div>
+

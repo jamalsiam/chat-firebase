@@ -2,7 +2,10 @@
 angular.module('user',
   ['signup',
    'login',
+   'logout',
    'main',
+   'a',
+   'settings',
    'u.services',
    'ngRoute'
 	])
@@ -12,13 +15,25 @@ angular.module('user',
       templateUrl: 'app/account/main.html',
       controller:  'mainController'
     })
+  .when('/', {
+      templateUrl: 'app/account/index.html',
+      controller:  'indexController'
+    })
     .when('/login', {
       templateUrl: 'app/account/login.html',
       controller:  'loginController'
     })     
+    .when('/settings', {
+      templateUrl: 'app/account/settings.html',
+      controller:  'settingsController'
+    })     
   .when('/signup', {
       templateUrl: 'app/account/signup.html',
       controller:  'signupController'
+    })
+  .when('/logout', {
+      templateUrl: 'app/account/logout.html',
+      controller:  'logoutController'
     })
 
     .otherwise({
