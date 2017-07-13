@@ -1,8 +1,14 @@
 angular.module('main',[])
 .controller('mainController', function ($scope , $window , $location ,Groups, Messages ) {
+	$scope.email= $window.localStorage.getItem("chatUser.email");
+	if(!$scope.email)
+	$window.location="/#/login";
+
+
 	$scope.groupName="no group selected";
 	$scope.image_profile="personIcon.png";
 	$scope.email= $window.localStorage.getItem("chatUser.email");
+
 	Groups.getGroup()
 	.then(function(i){
 		$scope.groupss=i;

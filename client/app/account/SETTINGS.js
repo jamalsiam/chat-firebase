@@ -2,6 +2,9 @@ angular.module('settings', [])
 
 .controller('settingsController', function ($scope , $window , $location ,Settings) {
 		$scope.email= $window.localStorage.getItem("chatUser.email");
+    if(!$scope.email)
+    $window.location="/#/login";
+
 		Settings.getSettings({email:$scope.email})
 		.then(function (i) {
 			console.log(i);
