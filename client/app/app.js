@@ -15,10 +15,6 @@ angular.module('user',
       templateUrl: 'app/account/main.html',
       controller:  'mainController'
     })
-  .when('/', {
-      templateUrl: 'app/account/index.html',
-      controller:  'indexController'
-    })
     .when('/login', {
       templateUrl: 'app/account/login.html',
       controller:  'loginController'

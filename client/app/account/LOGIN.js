@@ -18,7 +18,7 @@ angular.module('login' , [])
 				if(i=="logedin"){
 				$window.localStorage.setItem('chatUser.email', email );     	
 				$window.location="/#/main";
-				$window.location.reload()
+				$window.location.reload();
 			}
 			if(i=="checkpassword"){
 				$scope.msg="check password";
